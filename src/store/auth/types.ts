@@ -6,7 +6,7 @@ export type LoginPayloadType = {
 export type UserInfoType = {
   accessToken: string;
   userID: number;
-  username: string;
+  userName: string;
 }
 
 export type AuthStateType = {

@@ -5,9 +5,11 @@ export type ProductType = {
   name: string;
   description: string;
   price: number;
+  providerPrice: number;
   unit: string;
   categoryID: number;
   Category?: CategoryPayload;
+  qty?: number;
 };
 
 export type ProductStateType = {

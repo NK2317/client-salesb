@@ -38,6 +38,20 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "Orders" */ "@/views/Orders.vue"),
   },
   {
+    path: "/orders/new",
+    name: "NewOrder",
+    component: () =>
+      import(/* webpackChunkName: "NewOrder" */ "@/views/NewOrder.vue"),
+  },
+  {
+    path: "/orders/:id",
+    name: "ShowOrderDetail",
+    component: () =>
+      import(
+        /* webpackChunkName: "ShowOrderDetail" */ "@/views/ShowOrderDetail.vue"
+      ),
+  },
+  {
     path: "/signup",
     name: "SignUp",
     component: () =>
@@ -48,6 +62,23 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach(({ name }) => {
+  if (name !== "Login") {
+    try {
+      const json = localStorage.getItem("auth/user_data");
+      if (json) {
+        const { accessToken = false, userID = false } = JSON.parse(json);
+        if (!(accessToken && userID)) return { name: "Login" };
+      } else {
+        return { name: "Login" };
+      }
+    } catch (error) {
+      console.error(error);
+      return { name: "Login" };
+    }
+  }
 });
 
 export default router;

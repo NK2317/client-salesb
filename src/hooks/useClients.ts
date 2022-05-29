@@ -5,12 +5,8 @@ import { useStore } from "vuex";
 type ResponseType = {
   clients: ComputedRef<ClientType[]>;
   fetchClients: () => Promise<void>;
-  submitClient: (
-    clients: ClientType
-  ) => Promise<MutateClientResponseType>;
-  updateClient: (
-    clients: ClientType
-  ) => Promise<MutateClientResponseType>;
+  submitClient: (clients: ClientType) => Promise<MutateClientResponseType>;
+  updateClient: (clients: ClientType) => Promise<MutateClientResponseType>;
 };
 
 type MutateClientResponseType = {
@@ -33,11 +29,10 @@ export default function useCategories(): ResponseType {
     }
   };
 
-  const submitClient = async (client: ClientType): Promise<MutateClientResponseType> => {
-    const { error, data } = await store.dispatch(
-      "client/submitClient",
-      client
-    );
+  const submitClient = async (
+    client: ClientType
+  ): Promise<MutateClientResponseType> => {
+    const { error, data } = await store.dispatch("client/submitClient", client);
     if (error) {
       console.error(error);
       throw new Error(error?.message);
@@ -49,10 +44,7 @@ export default function useCategories(): ResponseType {
   const updateClient = async (
     client: ClientType
   ): Promise<MutateClientResponseType> => {
-    const { error, data } = await store.dispatch(
-      "client/updateClient",
-      client
-    );
+    const { error, data } = await store.dispatch("client/updateClient", client);
     if (error) {
       console.error(error);
       throw new Error(error?.message);
@@ -63,4 +55,3 @@ export default function useCategories(): ResponseType {
 
   return { clients, fetchClients, submitClient, updateClient };
 }
-

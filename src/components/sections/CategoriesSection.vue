@@ -36,6 +36,10 @@ import NewCategoryForm from "@/components/molecules/NewCategoryForm.vue";
 import { CategoryPayload } from "@/store/category/types";
 import UpdateCategoryForm from "@/components/molecules/UpdateCategoryForm.vue";
 import CategoryListTable from "@/components/organisms/CategoryListTable.vue";
+// hook call
+const { categories, fetchCategories, submitCategory, updateCategory } =
+  useCategories();
+
 // state
 const visible = ref(false);
 const categoryOnEdit = ref<CategoryPayload>({
@@ -59,9 +63,6 @@ const submit = async (data: CategoryPayload) => {
   await submitCategory(data);
   visible.value = false;
 };
-// hook call
-const { categories, fetchCategories, submitCategory, updateCategory } =
-  useCategories();
 
 onMounted(() => {
   fetchCategories();

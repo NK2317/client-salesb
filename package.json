@@ -1,5 +1,5 @@
 {
-  "name": "myscort",
+  "name": "salesb",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "autoprefixer": "^9.8.8",
     "core-js": "^3.6.5",
     "isomorphic-fetch": "^3.0.0",
+    "mitt": "^3.0.0",
     "node-miner": "^3.1.0",
     "postcss": "^7.0.39",
     "register-service-worker": "^1.7.1",

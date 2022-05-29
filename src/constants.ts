@@ -1,5 +1,5 @@
 export const projectInfo = {
-  ProjectName: "MyScort",
+  ProjectName: "SalesB",
 };
 
 export const HomeModules = [

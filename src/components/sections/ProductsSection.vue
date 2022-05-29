@@ -5,6 +5,8 @@
       decline-text="Cancelar"
       title="Agregar Producto"
       :visible="addVisible"
+      max-w="w-full"
+      overflow="scroll"
     >
       <NewProductForm @submit="submit" @cancel="() => (addVisible = false)" />
     </ContentModal>
@@ -30,7 +32,7 @@
         name="Search term"
         text="Search"
         placeholder="Escribe para buscar"
-        @keydown="search"
+        @keydown="(e: any) => search(e.target.value)"
       />
     </div>
     <ProductListTable :products="productList" @edit="setUpdate" />
@@ -59,14 +61,15 @@ const onUpdateRecord = ref<ProductType>({
   name: "",
   description: "",
   price: 0,
+  providerPrice: 0,
   unit: "",
   categoryID: 0,
 });
 
 const productList = computed(() => {
-  if(searchResults.value.length) return searchResults.value;
+  if (searchResults.value.length) return searchResults.value;
   return products.value;
-})
+});
 
 const setUpdate = (product: ProductType) => {
   onUpdateRecord.value = product;
@@ -83,10 +86,10 @@ const submitUpdate = async (data: ProductType) => {
   await updateProduct({ ...data, id: onUpdateRecord.value.id });
   searchResults.value = [];
   updateVisible.value = false;
-}
+};
 
-const [search] = debounce((e: any) => {
-  filterByTerm(e?.target?.value)
+const [search] = debounce((word: string) => {
+  filterByTerm(word);
 }, 1000);
 
 onMounted(() => {

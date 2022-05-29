@@ -7,7 +7,7 @@ const AuthModule: Module<AuthStateType, unknown> = {
   namespaced: true,
   state(): AuthStateType {
     return {
-      currentUser: {userID: 0, username: 'default', accessToken: ''},
+      currentUser: { userID: 0, userName: "default", accessToken: "" },
     };
   },
   mutations: {

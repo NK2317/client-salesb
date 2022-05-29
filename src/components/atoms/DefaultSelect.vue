@@ -22,7 +22,7 @@
 import { defineComponent, PropType } from "@vue/runtime-core";
 
 type OptionType = {
-  value: number | string;
+  value: number | string | undefined;
   label: string;
 };
 

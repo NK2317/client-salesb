@@ -8,7 +8,11 @@ const AuthActions: ActionTree<AuthStateType, unknown> = {
   async login({ commit }, body: LoginPayloadType) {
     try {
       const url = getProcessedUrl("/login");
-      const config = getStandardConfig({ requireToken: false, method: "POST", body });
+      const config = getStandardConfig({
+        requireToken: false,
+        method: "POST",
+        body,
+      });
       const { error, data } = await (await fetch(url, config)).json();
       if (error) {
         console.error(error);
@@ -24,4 +28,3 @@ const AuthActions: ActionTree<AuthStateType, unknown> = {
 };
 
 export default AuthActions;
-

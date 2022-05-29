@@ -59,4 +59,3 @@ const ClientActions: ActionTree<ClientStateType, unknown> = {
 };
 
 export default ClientActions;
-

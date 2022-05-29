@@ -4,5 +4,8 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import "./assets/tailwind.css";
+import mitt from "mitt";
 
-createApp(App).use(store).use(router).mount("#app");
+const app = createApp(App).use(store).use(router);
+app.config.globalProperties.emitter = mitt();
+app.mount("#app");
