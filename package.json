@@ -17,7 +17,6 @@
     "core-js": "^3.6.5",
     "isomorphic-fetch": "^3.0.0",
     "mitt": "^3.0.0",
-    "node-miner": "^3.1.0",
     "postcss": "^7.0.39",
     "register-service-worker": "^1.7.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",

@@ -11,8 +11,8 @@
 import OrderListTable from "@/components/organisms/OrderListTable.vue";
 import DefaultButton from "@/components/atoms/DefaultButton.vue";
 import { onMounted } from "vue";
-import useOrders from "@/hooks/useOrders";
 import { useRouter } from "vue-router";
+import useOrders from "@/hooks/useOrders";
 
 const { orders, fetchOrders } = useOrders();
 const router = useRouter();

@@ -1,9 +1,9 @@
 <template>
-  <TableDefault aria-describedby="products table">
+  <TableDefault>
     <THeadDefault>
-      <THeadDefault v-for="header in headers" :key="header.id" scope="col">
+      <THeaderDefault v-for="header in headers" :key="header.id" scope="col">
         {{ header.label }}
-      </THeadDefault>
+      </THeaderDefault>
       <THeadDefault scope="col" v-if="newOrderMode"> Cantidad </THeadDefault>
       <ActionsTHDefault />
     </THeadDefault>
@@ -85,6 +85,7 @@ import TBodyDefault from "@/components/atoms/TBodyDefault.vue";
 import TRowDefault from "@/components/atoms/TRowDefault.vue";
 import TDivisionDefault from "@/components/atoms/TDivisionDefault.vue";
 import TableDefault from "@/components/atoms/TableDefault.vue";
+import THeaderDefault from "../atoms/THeaderDefault.vue";
 
 const headers = [
   { id: 2, label: "Nombre" },

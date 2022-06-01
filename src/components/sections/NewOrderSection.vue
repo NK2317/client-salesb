@@ -88,7 +88,13 @@ const [search] = debounce((e: any) => {
 globalEmitter.on("qtyProductEdit", (payload: OrderProductPayload) => {
   selectedProducts.value = selectedProducts.value.map((product) => {
     if (product.product.id === payload.product.id) {
-      return { ...product, qty: payload.qty };
+      return {
+        ...product,
+        qty:
+          typeof payload.qty === "string"
+            ? parseFloat(payload.qty)
+            : payload.qty,
+      };
     }
     return product;
   });
