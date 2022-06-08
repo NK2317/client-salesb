@@ -67,7 +67,8 @@ const router = createRouter({
 router.beforeEach(({ name }) => {
   if (name !== "Login") {
     try {
-      const json = localStorage.getItem("auth/user_data");
+      //const json = localStorage.getItem("auth/user_data");
+      const json = sessionStorage.getItem("auth/user_data");
       if (json) {
         const { accessToken = false, userID = false } = JSON.parse(json);
         if (!(accessToken && userID)) return { name: "Login" };

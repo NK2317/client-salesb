@@ -18,13 +18,15 @@ export default function useAuth(): ResponseType {
     if (error) throw new Error(error?.message);
 
     if (data) {
-      localStorage.setItem("auth/user_data", JSON.stringify(data));
+      //localStorage.setItem("auth/user_data", JSON.stringify(data));
+      sessionStorage.setItem("auth/user_data", JSON.stringify(data));
       return true;
     }
   };
 
   const getAuthInfo = (): UserInfoType =>
-    JSON.parse(localStorage.getItem("auth/user_data") || "");
+  //JSON.parse(localStorage.getItem("auth/user_data") || "");
+    JSON.parse(sessionStorage.getItem("auth/user_data") || "");
 
   const logout = async () => {
     const { accessToken, userID } = getAuthInfo();
