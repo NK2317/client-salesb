@@ -24,6 +24,7 @@
         @change="(e: any) => data.password = e.target.value"
       />
       <DefaultButton text="Registrar Usuario" button-type="submit" />
+      <DefaultButton text="Borrar Campos" button-type="reset" />
     </div>
   </form>
 </template>

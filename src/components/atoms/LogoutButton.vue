@@ -25,12 +25,12 @@ export default defineComponent({
         },
         computed:{
             isLogIn(){
-                return window.sessionStorage.getItem("user");
+                return window.sessionStorage.getItem("_username");
             }
         },
         methods: {
             logOut(){
-                window.sessionStorage.removeItem("user");
+                window.sessionStorage.removeItem("_username");
                 window.location.replace("http://localhost:8080/login");
             }
         },
